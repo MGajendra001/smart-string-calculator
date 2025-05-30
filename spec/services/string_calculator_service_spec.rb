@@ -16,6 +16,6 @@ RSpec.describe StringCalculatorService do
 
     it 'supports newlines as delimiters' do
       expect(described_class.add("1\n2,3")).to eq(6)
-    end    
+    end
   end
 end
