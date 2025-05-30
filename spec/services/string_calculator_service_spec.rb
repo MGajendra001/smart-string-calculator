@@ -27,5 +27,19 @@ RSpec.describe StringCalculatorService do
         described_class.add("1,-2,-5")
       }.to raise_error("negative numbers not allowed -2,-5")
     end
+
+    it "ignores double quotes around numbers" do
+      expect(described_class.add('"1","2","3"')).to eq(6)
+      expect(described_class.add('1,"2",3')).to eq(6)
+      expect(described_class.add('""1""')).to eq(1)
+    end
+
+    it "ignores empty tokens" do
+      expect(described_class.add("1,,2,,3")).to eq(6)
+    end
+
+    it "handles spaces around numbers" do
+      expect(described_class.add(" 1 , 2 , 3 ")).to eq(6)
+    end
   end
 end
