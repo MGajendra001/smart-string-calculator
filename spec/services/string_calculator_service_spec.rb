@@ -9,5 +9,9 @@ RSpec.describe StringCalculatorService do
     it 'returns the number for a single number' do
       expect(described_class.add("4")).to eq(4)
     end
+
+    it 'returns the sum for two numbers' do
+      expect(described_class.add("1,5")).to eq(6)
+    end
   end
 end
