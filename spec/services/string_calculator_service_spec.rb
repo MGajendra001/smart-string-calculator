@@ -5,5 +5,9 @@ RSpec.describe StringCalculatorService do
     it 'returns 0 for an empty string' do
       expect(described_class.add("")).to eq(0)
     end
+
+    it 'returns the number for a single number' do
+      expect(described_class.add("4")).to eq(4)
+    end
   end
 end
