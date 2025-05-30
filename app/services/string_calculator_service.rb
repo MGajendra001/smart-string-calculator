@@ -9,11 +9,17 @@ class StringCalculatorService
       numbers = parts.last
     end
 
-    nums = numbers.split(/#{delimiter}|,|\n/).map(&:to_i)
+    tokens = numbers.split(delimiter)
 
-    negatives = nums.select { |n| n < 0 }
-    raise "negative numbers not allowed #{negatives.join(',')}" if negatives.any?
+    clean_numbers = tokens.map do |token|
+      token.strip.gsub(/\"/, "")
+    end.reject(&:empty?)
 
-    nums.sum
+    negatives = clean_numbers.map(&:to_i).select { |n| n < 0 }
+    if negatives.any?
+      raise "negative numbers not allowed #{negatives.join(',')}"
+    end
+
+    clean_numbers.map(&:to_i).sum
   end
 end
