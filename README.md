@@ -16,6 +16,11 @@ A simple web-based String Calculator built using **Ruby on Rails** with **TDD** 
 - ✅ Ignores empty or invalid tokens.
 - ❌ Rejects negative numbers and shows the full list of invalid values in the error message:
 
+
+<img width="1678" alt="Screenshot 2025-05-30 at 9 27 47 PM" src="https://github.com/user-attachments/assets/5aa36eab-c81e-4ff7-be36-5f664eb3f739" />
+<img width="1680" alt="Screenshot 2025-05-30 at 9 28 20 PM" src="https://github.com/user-attachments/assets/16581401-5ef5-402b-a7e6-6ba3a31c3820" />
+
+
 ---
 
 ## 🧪 Test-Driven Development
