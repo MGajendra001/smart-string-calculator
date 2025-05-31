@@ -66,3 +66,38 @@ The calculator follows this logic:
     "1\n2,3"       → 6
     "//;\n1;2"     → 3
     "\"1\",\"2\""   → 3
+
+⚙️ Setup & Run Locally
+
+1. Clone the Repository
+
+git clone https://github.com/MGajendra001/smart-string-calculator.git
+OR
+git clone git@github.com:MGajendra001/smart-string-calculator.git
+cd string_calculator
+
+2. Install Dependencies
+
+bundle install
+
+3. Setup the Database
+
+Option A — All in one:
+
+bin/rails db:setup
+
+Option B — Step-by-step:
+
+bin/rails db:create
+bin/rails db:migrate
+bin/rails db:seed   # Optional
+
+4. Run the Test Suite
+
+bundle exec rspec
+
+5. Start the Rails Server
+
+bin/rails server
+
+Visit http://localhost:3000 to try the calculator!
