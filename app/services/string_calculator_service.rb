@@ -5,15 +5,14 @@ class StringCalculatorService
     delimiter = /,|\n/
     if numbers.start_with?("//")
       parts = numbers.split("\n", 2)
-      delimiter = Regexp.escape(parts.first[2])
+      custom_delimiter = Regexp.escape(parts.first[2..])
+      delimiter = /#{custom_delimiter}/
       numbers = parts.last
     end
 
     tokens = numbers.split(delimiter)
 
-    clean_numbers = tokens.map do |token|
-      token.strip.gsub(/\"/, "")
-    end.reject(&:empty?)
+    clean_numbers = tokens.map(&:strip).reject(&:empty?).map { |token| token.gsub(/\"/, "") }
 
     negatives = clean_numbers.map(&:to_i).select { |n| n < 0 }
     if negatives.any?

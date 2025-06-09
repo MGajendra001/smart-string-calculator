@@ -41,5 +41,9 @@ RSpec.describe StringCalculatorService do
     it "handles spaces around numbers" do
       expect(described_class.add(" 1 , 2 , 3 ")).to eq(6)
     end
+
+    it 'support custom delimeter' do
+      expect(described_class.add("//-\n1-2-3")).to eq(6)
+    end
   end
 end
